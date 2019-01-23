@@ -4,11 +4,41 @@ To start your Phoenix server:
 
   * Install dependencies with `mix deps.get`
   * Create and migrate your database with `mix ecto.create && mix ecto.migrate`
-  * Start Phoenix endpoint with `mix phx.server`
+  * Start Phoenix endpoint with `iex -S mix phx.server`
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+Now you can visit [`http://localhost:4000/graphiql`](http://localhost:4000/graphiql) from your browser.
 
-Ready to run in production? Please [check our deployment guides](http://www.phoenixframework.org/docs/deployment).
+Play around! :)
+
+Some examples:
+
+#### Get all links
+
+```
+{
+  allLinks {
+    id
+    url
+    description
+  }
+}
+```
+
+#### Create a new link
+
+```
+mutation {
+  createLink(
+    url: "http://npmjs.com/package/graphql-tools",
+    description: "Best Tools!",
+  ) {
+    id
+    url
+    description
+  }
+}
+```
+
 
 ## Learn more
 
